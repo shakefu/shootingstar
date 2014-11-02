@@ -1,4 +1,4 @@
 shootingstar
 ============
 
-Chat Server and Web Client
+Telnet chat server
