@@ -276,15 +276,6 @@ class ChatServer extends EventEmitter
       channels: {}
       users: []
 
-    # Create the server and connection callback
-    @server = net.createServer @connect
-
-    # Make the server listen on the specified host and port
-    host = config.get 'server.host'
-    port = config.get 'server.port'
-    @server.listen port, host, ->
-      log.info "Listening on #{host}:#{port}"
-
   connect: (socket) =>
     log.info "New connection from #{socket.remoteAddress}"
 
@@ -356,6 +347,7 @@ class ChatServer extends EventEmitter
     return unless chans[channel]?
     chans[channel] = _.without chans[channel], name
     @emit 'channel', channel, "user has left chat: #{name}"
+    log.info "#{name} left #{channel}"
 
   ###
   Handler for a channel message
@@ -390,7 +382,19 @@ class ChatServer extends EventEmitter
       if chans[chan].length is 0
         delete chans[chan]
 
-# Create our server an export it, just for fun
-module.exports = new ChatServer()
+# Export the ChatServer class
+exports.ChatServer = ChatServer
+
+# Create our server instance
+chat_server = new ChatServer()
+
+# Create the server and connection callback
+server = net.createServer chat_server.connect
+
+# Make the server listen on the specified host and port
+host = config.get 'server.host'
+port = config.get 'server.port'
+server.listen port, host, ->
+  log.info "Listening on #{host}:#{port}"
 
 
