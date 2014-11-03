@@ -67,7 +67,7 @@ Template.chat.helpers
     for room of _rooms
       rooms.push name: room, count: _rooms[room]
     rooms
-  users: -> Active.find channel: currentChannel()
+  users: -> Active.find {channel: currentChannel()}, sort: user: 1
 
 
 Template.chat.events
