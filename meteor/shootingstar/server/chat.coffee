@@ -1,9 +1,4 @@
-notifications = new Meteor.Stream 'server-notifications'
+channels = new Meteor.Stream 'channels'
 
-
-notifications.permissions.read (userId, eventName) -> true
-
-setInterval (->
-  notifications.emit 'message', "Server Generated Message", Date.now()
-), 1000
+channels.permissions.read (userId, eventName) -> true
 
