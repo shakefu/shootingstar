@@ -1,6 +1,7 @@
 docs/
 src/
 test/
+meteor/
 Gruntfile.coffee
 localconfig.json
 *.log
