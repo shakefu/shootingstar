@@ -8,18 +8,54 @@
 
 
 <template name="chat">
-  <div class="row columns twelve">
-    {{#each messages}}
-    <p>
-    <strong>{{user}}</strong>
-    {{message}}
-    </p>
-    {{/each}}
+<div class="row">
+  <div class="columns two field">
+    <label for="channel">{{#if channel}}Chatting in...{{else}}Join...{{/if}}</label>
+    <input class="input" type="text" id="channel" value="{{channel}}" placeholder="Room name">
   </div>
-  <div class="row">
-    <div class="columns four field">
-      <input class="input" type="text" id="channel"/>
+  <div class="columns six field">
+    <label for="message">Say something...</label>
+    <input class="input" type="text" id="message">
+  </div>
+  <div class="columns four">
+    <label>{{#if currentUser}}Signed in as...{{else}}Sign in...{{/if}}</label>
+    <div class="login">
+    {{> loginButtons}}
     </div>
   </div>
+</div>
+<div class="row">
+  <div class="columns twelve">
+    {{#each messages}}
+    <div class="row">
+      <div class="columns two">
+        <strong>{{user}}</strong>
+      </div>
+      <div class="columns ten">
+        {{message}}
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+{{#if channel}}
+<div id="users" class="row">
+  <h6>Users</h6>
+  {{#each users}}
+  <div class="columns two">
+    {{user}}
+  </div>
+  {{/each}}
+</div>
+{{else}}
+<div id="rooms" class="row">
+  <h6>Rooms</h6>
+  {{#each rooms}}
+  <div class="columns two">
+    {{name}} ({{count}})
+  </div>
+  {{/each}}
+</div>
+{{/if}}
 </template>
 
