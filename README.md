@@ -30,6 +30,8 @@ $ npm install -g grunt-cli
 $ grunt
 ```
 
+By default, the server will run on port 9399.
+
 ## Running the server for fun
 
 The only thing that needs to be done to run the server outside development is
@@ -54,8 +56,8 @@ tests for you on file changes. If you'd like to run a one-off of the tests, use
 
 This repository also includes a UI based chat server that's very similar to the
 telnet server. It was an experiment to see if it was possible to build a
-realtime chat server using the MeteorJS framework, so it's lacking tests and
-good documentation.
+realtime chat server using the MeteorJS framework just for my own entertainment
+and curiousity, so it's lacking tests and documentation.
 
 ## Running the meteor chat server
 
@@ -66,4 +68,6 @@ in development mode.
 $ cd shootingstar/meteor/shootingstar
 $ meteor
 ```
+
+Connect to `http://localhost:3000` to use it.
 
