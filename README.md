@@ -49,9 +49,12 @@ command.
 Grunt is perferable since it's already configured, but requires the `grunt-cli`
 package be installed.
 
+Settings like the IP to bind to, and port number to run on can be overridden on
+the command line. Check out `src/config.coffee` for a full listing.
+
 ```bash
 $ grunt coffee
-$ node lib/server.js
+$ HOST=0.0.0.0 PORT=1234 node lib/server.js
 ```
 
 ## Running tests
