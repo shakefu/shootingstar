@@ -6,6 +6,12 @@ create rooms, and chat with one another.
 The server does not persist any channels or user connections through a reboot.
 It also does not persist any chat messages.
 
+This server does not also truly implement the telnet protocol. It's pretty dumb
+that way. So, it might get stuck on control characters, or have odd behavior if
+you're using a telnet client that wants to send WILL/WONT/DO/DONT, etc. It may
+work if you inline ANSI control/color codes while chatting, but I haven't
+tested it.
+
 There is a demo server running at `jake-alheid.me 9399`.
 
 ## Installation for development
