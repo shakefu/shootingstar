@@ -82,7 +82,7 @@ class ChatSession extends EventEmitter
   channelHandler: (data) =>
     # If it starts with a slash, it's not a chat and we pass to commandHandler
     return @commandHandler data unless data[0] isnt '/'
-    @emit 'channel', @channel, "#{@name}: #{data}"
+    @emit 'channel', @channel, "#{@name}: #{data}" if data
 
   ###
   Handle channel broadcast events
