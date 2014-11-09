@@ -59,6 +59,9 @@ telnet server. It was an experiment to see if it was possible to build a
 realtime chat server using the MeteorJS framework just for my own entertainment
 and curiousity, so it's lacking tests and documentation.
 
+There's a copy of this server running at http://jakechat.meteor.com that
+you're welcome to try out.
+
 ## Running the meteor chat server
 
 Just move into the meteor project directory and type `meteor` to run the server
