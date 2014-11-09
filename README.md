@@ -50,4 +50,20 @@ If you're running the server in development mode, grunt will automatically run
 tests for you on file changes. If you'd like to run a one-off of the tests, use
 `grunt test`.
 
+# Bonus
+
+This repository also includes a UI based chat server that's very similar to the
+telnet server. It was an experiment to see if it was possible to build a
+realtime chat server using the MeteorJS framework, so it's lacking tests and
+good documentation.
+
+## Running the meteor chat server
+
+Just move into the meteor project directory and type `meteor` to run the server
+in development mode.
+
+```bash
+$ cd shootingstar/meteor/shootingstar
+$ meteor
+```
 
