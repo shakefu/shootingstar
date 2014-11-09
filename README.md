@@ -1,4 +1,52 @@
-shootingstar
-============
+# Shooting Star
 
-Telnet chat server
+This is a node.js event-based chat server. It allows multiple users to connect,
+create rooms, and chat with one another.
+
+The server does not persist any channels or user connections through a reboot.
+It also does not log or persist any chat messages.
+
+## Installation for development
+
+```bash
+$ git clone git@github.com:shakefu/shootingstar.git
+$ cd shootingstar
+$ npm install
+```
+
+If this was a more serious project, it would be properly built and on NPM for
+regular installation. But since I don't want to pollute NPM, it isn't.
+
+## Running the server for development
+
+This repository includes a grunt file which will run the server, as well as
+recompile coffeescript, restart the server, and run tests on file changes.
+
+If you don't have it, you need `grunt-cli`, otherwise you can skip that step.
+
+```bash
+$ npm install -g grunt-cli
+$ grunt
+```
+
+## Running the server for fun
+
+The only thing that needs to be done to run the server outside development is
+compile the `index.coffee` to JS. This can be done with grunt or the `coffee`
+command.
+
+Grunt is perferable since it's already configured, but requires the `grunt-cli`
+package be installed.
+
+```bash
+$ grunt coffee
+$ node lib/server.js
+```
+
+## Running tests
+
+If you're running the server in development mode, grunt will automatically run
+tests for you on file changes. If you'd like to run a one-off of the tests, use
+`grunt test`.
+
+
