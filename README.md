@@ -4,7 +4,7 @@ This is a node.js event-based chat server. It allows multiple users to connect,
 create rooms, and chat with one another.
 
 The server does not persist any channels or user connections through a reboot.
-It also does not log or persist any chat messages.
+It also does not persist any chat messages.
 
 ## Installation for development
 
