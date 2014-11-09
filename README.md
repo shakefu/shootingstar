@@ -67,8 +67,8 @@ tests for you on file changes. If you'd like to run a one-off of the tests, use
 
 This repository also includes a UI based chat server that's very similar to the
 telnet server. It was an experiment to see if it was possible to build a
-realtime chat server using the MeteorJS framework just for my own entertainment
-and curiousity, so it's lacking tests and documentation.
+realtime chat server using the MeteorJS framework, done purely for my own
+entertainment and curiousity, so it's lacking tests and documentation.
 
 There's a copy of this server running at http://jakechat.meteor.com that
 you're welcome to try out.
