@@ -62,15 +62,13 @@ module.exports = (grunt) ->
 
     # Mocha test task, which is run by the watch task when there are changes to
     # test or library files
-    mocha:
+    mochaTest:
       test:
         src: ['test/**/*.coffee']
         options:
           # This allows Mocha to compile the coffeescript tests directly, as
           # well as activates the fibrous API
-          require: ['coffee-script/register', 'fibrousity', 'chai']
-          # This tells Mocha to run all tests within a Fiber
-          ui: 'mocha-fibers'
+          require: ['coffee-script/register', 'chai']
 
     # Define tasks which can be executed concurrently for faster builds
     concurrent:
@@ -96,5 +94,5 @@ module.exports = (grunt) ->
 
   # Our default grunt task compiles our coffeescript lib then runs our server
   grunt.registerTask 'default', ['newer:coffee', 'concurrent:dev']
-  grunt.registerTask 'test', ['newer:coffee', 'env:test', 'mocha']
+  grunt.registerTask 'test', ['newer:coffee', 'env:test', 'mochaTest']
 

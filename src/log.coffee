@@ -10,6 +10,13 @@ winston = require 'winston'
 config = require './config'
 
 
+# When we're running tests, create a dummy logger with no transports and skip
+# initializing properly
+if config.get('env') is 'test'
+  module.exports = new winston.Logger()
+  return
+
+
 # Create a base instance that logs to the console
 logger = new winston.Logger()
   .add winston.transports.Console

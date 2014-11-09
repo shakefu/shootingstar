@@ -222,6 +222,7 @@ class ChatSession extends EventEmitter
       if user is @name
         user += " (you)"
       @send " * #{user}"
+      @send "end of list."
 
   ###
   Callback for listing all channels
@@ -248,6 +249,7 @@ class ChatSession extends EventEmitter
       @send "No active rooms. You should create one with /join!"
     else
       @send "Active rooms are:" + out
+      @send "end of list."
 
   ###
   Handler for anything going wrong with the user's socket or it being closed
@@ -261,6 +263,10 @@ class ChatSession extends EventEmitter
     else
       log.info "#{@socket.remoteAddress} has disconnected"
     process.nextTick => delete @
+
+# Export for testing
+exports.ChatSession = ChatSession
+
 
 
 ###
@@ -292,6 +298,9 @@ class ChatServer extends EventEmitter
 
     # Finally bind this server's listeners to the session
     @bind session
+
+    # Just returning the session for introspection purposes
+    session
 
   ###
   Bind an event emitter to this server's listeners.
@@ -388,7 +397,7 @@ exports.ChatServer = ChatServer
 # Create our server instance
 chat_server = new ChatServer()
 
-# Create the server and connection callback
+# Create the server with connection callback
 server = net.createServer chat_server.connect
 
 # Make the server listen on the specified host and port
