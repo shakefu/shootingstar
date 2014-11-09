@@ -226,7 +226,7 @@ class ChatSession extends EventEmitter
       if user is @name
         user += " (you)"
       @send " * #{user}"
-      @send "end of list."
+    @send "end of list."
 
   ###
   Callback for listing all channels
