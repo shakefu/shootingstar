@@ -6,6 +6,8 @@ create rooms, and chat with one another.
 The server does not persist any channels or user connections through a reboot.
 It also does not persist any chat messages.
 
+There is a demo server running at `jake-alheid.me 9399`.
+
 ## Installation for development
 
 ```bash
