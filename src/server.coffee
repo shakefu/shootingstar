@@ -58,6 +58,8 @@ class ChatSession extends EventEmitter
   ###
   Handle entered commands (starting with a /) or all input when a user is not
   in a channel
+
+  @param {String} data - User input string
   ###
   commandHandler: (data) =>
     return @error() unless data[0] is '/'
@@ -74,6 +76,8 @@ class ChatSession extends EventEmitter
 
   ###
   Handle input when a user is active in a channel
+
+  @param {String} data - User input string
   ###
   channelHandler: (data) =>
     # If it starts with a slash, it's not a chat and we pass to commandHandler
@@ -272,8 +276,8 @@ exports.ChatSession = ChatSession
 ###
 # ChatServer
 
-A wrapper around `net.Server` for ease of use.
-
+This is intended to be used with net.Server for creating socket listeners that
+handle chat commands, as well as other events.
 ###
 class ChatServer extends EventEmitter
   constructor: ->
@@ -282,6 +286,11 @@ class ChatServer extends EventEmitter
       channels: {}
       users: []
 
+  ###
+  Connection callback for net.Server
+
+  @param {net.Socket} socket - Socket instance
+  ###
   connect: (socket) =>
     log.info "New connection from #{socket.remoteAddress}"
 

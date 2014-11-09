@@ -14,8 +14,9 @@ $ cd shootingstar
 $ npm install
 ```
 
-If this was a more serious project, it would be properly built and on NPM for
-regular installation. But since I don't want to pollute NPM, it isn't.
+If this was a more serious project, it would be properly built and available on
+npm or a privately hosted npm for regular installation. But since I don't want
+to pollute npm, it isn't.
 
 ## Running the server for development
 
@@ -32,7 +33,7 @@ $ grunt
 ## Running the server for fun
 
 The only thing that needs to be done to run the server outside development is
-compile the `index.coffee` to JS. This can be done with grunt or the `coffee`
+compile the coffeescript to JS. This can be done with grunt or the `coffee`
 command.
 
 Grunt is perferable since it's already configured, but requires the `grunt-cli`
