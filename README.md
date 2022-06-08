@@ -1,3 +1,8 @@
+# Archived: No longer maintained or updated
+
+This repository contains references to packages with critical security fixes
+needed. Do not use this without forking and updating.
+
 # Shooting Star
 
 This is a node.js event-based chat server. It allows multiple users to connect,
